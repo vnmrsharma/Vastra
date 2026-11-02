@@ -1,0 +1,61 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+**/.env.local
+**/.vercel/
+
+# Node / Next
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Firebase Functions build
+vastra/functions/lib/
+
+# Flutter / Dart
+**/doc/api/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/build/
+**/coverage/
+app.*.symbols
+app.*.map.json
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+**/ios/Flutter/.last_build_id
+**/.build/
+**/migrate_working_dir/
+**/.swiftpm/
+**/Podfile.lock
+
+# Misc
+*.pem
+*.log
+.widget_preview/

@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      match /wardrobeItems/{itemId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /inspirations/{inspirationId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /outfits/{outfitId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /tryOnJobs/{jobId} {
+        allow read, delete: if isOwner(userId);
+        allow update: if isOwner(userId)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['favourite']);
+        allow create: if false; // Cloud Functions only
+      }
+
+      match /wearLog/{day} {
+        allow read, write: if isOwner(userId);
+      }
+
+      match /dailyLooks/{dayOccasion} {
+        allow read, delete: if isOwner(userId);
+        allow create, update: if false; // Cloud Functions only
+      }
+
+      match /savedLooks/{lookId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    match /products/{productId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+  }
+}

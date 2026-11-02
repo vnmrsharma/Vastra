@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f6f1e8;
+  --ivory-deep: #ebe3d6;
+  --soft-white: #fffcf7;
+  --charcoal: #2c241f;
+  --chocolate: #6a4a3a;
+  --burgundy: #8b3d4a;
+  --burgundy-soft: #a85a66;
+  --blush: #f3ddd8;
+  --mint: #dce8df;
+  --muted: #8f8276;
+  --border: #e6ddd0;
+  --success: #3f6e52;
+  --danger: #a33d3d;
+  --background: var(--ivory);
+  --foreground: var(--charcoal);
+  --shadow-soft: 0 18px 50px rgba(74, 52, 40, 0.08);
+  --shadow-lift: 0 10px 28px rgba(74, 52, 40, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ivory: var(--ivory);
+  --color-ivory-deep: var(--ivory-deep);
+  --color-soft-white: var(--soft-white);
+  --color-charcoal: var(--charcoal);
+  --color-chocolate: var(--chocolate);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-soft: var(--burgundy-soft);
+  --color-blush: var(--blush);
+  --color-mint: var(--mint);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 8% -8%, #f2e4d4 0%, transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, #efd9d5 0%, transparent 48%),
+    radial-gradient(ellipse 50% 40% at 70% 100%, #e8efe8 0%, transparent 45%),
+    var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--burgundy) 22%, white);
+}
+
+.vastra-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+}
+
+.surface {
+  background: color-mix(in srgb, var(--soft-white) 92%, white);
+  border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+  box-shadow: var(--shadow-soft);
+  border-radius: 1.25rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  background: var(--ivory-deep);
+  color: var(--chocolate);
+}
+
+.fade-up {
+  animation: fadeUp 0.55s ease both;
+}
+
+.fade-up-delay {
+  animation: fadeUp 0.7s ease 0.08s both;
+}
+
+.floaty {
+  animation: floaty 5.5s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--ivory-deep) 15%,
+    var(--soft-white) 40%,
+    var(--ivory-deep) 65%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+.item-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "328325046668",
+    "firebase_url": "https://mcurio-main-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "mcurio-main",
+    "storage_bucket": "mcurio-main.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328325046668:android:917da63acd8c07c8acb6a9",
+        "android_client_info": {
+          "package_name": "com.vastra.vastra_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328325046668-05ihg7hd6u9q09c7ohe154iqbqu7ra15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc3h5YTqmwwY-srrwLcUpOd2IpjA5DUv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328325046668-05ihg7hd6u9q09c7ohe154iqbqu7ra15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

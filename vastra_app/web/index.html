@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Vastra — your AI wardrobe with Pip, your style sidekick. Dress for the day from your own closet and try clothes on with YouCam before you buy.">
+  <meta name="theme-color" content="#F6F1E8">
+
+  <!-- Installable on iPhone: Share → Add to Home Screen -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Vastra">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <meta property="og:title" content="Vastra — AI wardrobe & virtual try-on">
+  <meta property="og:description" content="Dress for the day from your own closet. Try anything on with YouCam before you buy.">
+  <meta property="og:image" content="icons/Icon-512.png">
+
+  <!-- Warm up connections the app needs right away (engine + Firebase), and fetch the app code in parallel. -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://firebasestorage.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://identitytoolkit.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://securetoken.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://dressmetoday-u2ibcbbb7a-ew.a.run.app" crossorigin>
+  <link rel="preload" href="main.dart.js" as="script">
+
+  <title>Vastra</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #F6F1E8;
+      overscroll-behavior: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #vastra-splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #F2E4D4 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, #EFD9D5 0%, transparent 50%),
+        #F6F1E8;
+      transition: opacity 0.35s ease;
+      z-index: 9999;
+    }
+    #vastra-splash .pip {
+      width: 150px;
+      height: auto;
+      animation: vastra-bounce 1.6s ease-in-out infinite;
+      transform-origin: 50% 100%;
+    }
+    #vastra-splash .logo {
+      width: 190px;
+      height: auto;
+    }
+    #vastra-splash small {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      font-size: 13px;
+      color: #8F8276;
+    }
+    @keyframes vastra-bounce {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(2deg) scale(1.02); }
+    }
+  </style>
+</head>
+<body>
+  <div id="vastra-splash">
+    <img class="pip" src="icons/pip.png" alt="Pip">
+    <img class="logo" src="icons/logo.png" alt="Vastra">
+    <small>Pip is opening your wardrobe…</small>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('vastra-splash');
+      if (!splash) return;
+      splash.style.opacity = '0';
+      setTimeout(function () { splash.remove(); }, 400);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
